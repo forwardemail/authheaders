@@ -10,7 +10,10 @@ before_install:
   - sudo apt purge python2.7-minimal
   - sudo apt-get install python3 python3-pip python3-setuptools
   - pip3 install --upgrade pip setuptools wheel
-  - pip3 install authheaders dkimpy dnspython==1.16.0 pyspf
+  - pip3 install git+https://github.com/forwardemail/authentication-headers.git
+  - pip3 install dkimpy
+  - pip3 install pyspf
+  - pip3 install dnspython==1.16.0
 script:
   - npm run test-coverage
 after_success:
