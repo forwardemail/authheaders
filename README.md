@@ -73,13 +73,13 @@ const fs = require('fs');
 const { authenticateMessage } = require('authheaders');
 
 const message = fs.readFileSync('/path/to/example.eml');
-const selector = 'default'; // default._domainkey
-const domain = 'example.com';
-const srvId = 'mx.example.com';
-const privateKeyFile = '/path/to/private.key';
+const authservId = 'mx.example.com';
+const ip = '1.2.3.4';
+const mailFrom = 'example.net';
+const helo = 'domain.of.sender.example.net';
 
 // then/catch usage
-authenticateMessage(message, selector, domain, privateKeyFile, srvId)
+authenticateMessage(message, authservId, ip, mailFrom, helo)
   .then(console.log)
   .catch(console.error);
 
