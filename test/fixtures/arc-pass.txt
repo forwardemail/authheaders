@@ -1,0 +1,87 @@
+Delivered-To: nicholasbaugh@gmail.com
+Received: by 2002:a1c:4086:0:0:0:0:0 with SMTP id n128csp234270wma;
+        Thu, 30 Jul 2020 08:22:29 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyd4LesG7DYqpcJX12YU1Nbilo/zqrGk0x2qgX5yxOqquNKtgaqDgzlThanMEMYk8XgUZJd
+X-Received: by 2002:a17:90a:f192:: with SMTP id bv18mr3582727pjb.21.1596122549514;
+        Thu, 30 Jul 2020 08:22:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1596122549; cv=none;
+        d=google.com; s=arc-20160816;
+        b=pXW418gsRaXy2FXNqxkxpBPYM8TGEkTbZtC31pNbFHzQDWP1gsQW6xDFH/L2CJL1dO
+         55Z2gy4jJ7Pd/6fbkGXX6rPCPmPe1kBxhZi+RXeOP4Az5lFgKuOil+s2bFovr6N3vZXh
+         W21W9T31fjU1ImeUJU2yHvoaS2A9deQ5tDEto/3SmNQk3nCvjn20IqaArgsAaapY2TFg
+         3eItIadWcmnzlDvXyZXe3lBwgdfdzY9QvQuousWY6e1YSXS1xkn8yGbAMZK4scFYfq4r
+         K9PpscIDIhyynU+9jOR6iBw1OEVa+GqhxUnf7IbTEw8slimEYBzfmkeiHPDZ2GcclJ/g
+         o8rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :dkim-signature;
+        bh=br2DPNSZHrg1Mpy/uLevoeFmOGxCbPOg86VB+5t1hSk=;
+        b=QfT6Sfg4Js7iZCeMgX9AyXcRU0WMyTHJwOlEm/ZmGBZwvUhonDdKTH0MIUpAg6OaeD
+         kgzs2HQIVpd/A9J3TGwC7evHvYig6xM5aUHlQ41aZvjFR6x1Yjx9RfiH27RyjhMzQmnv
+         eJWVYozBYLssIVr7Y/iVJEdyupkMGM6HOv/rtOT6FeJtfP8bC+RZYQQ9g6NZJA2lehEq
+         AvTAxm4lW8swGdSueGOUnzreG8Kd99hZLm3D9N400LCF7MANYbndGmsH5b2RyUMPjbKf
+         Jxw5sPD68ZME86ho6lOS6fAcWB1nLJlEL5nyQ+CqLpq1bPNIhPe+uN9qcUEjD8r/1uRg
+         /Mlw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@forwardemail.net header.s=default header.b=B16Krnpw;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gjWdxoYn;
+       spf=pass (google.com: domain of srs0=5dd6=bk=gmail.com=niftylettuce@forwardemail.net designates 138.197.213.185 as permitted sender) smtp.mailfrom="SRS0=5dd6=BK=gmail.com=niftylettuce@forwardemail.net";
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <SRS0=5dd6=BK=gmail.com=niftylettuce@forwardemail.net>
+Received: from mx1.forwardemail.net (mx1.forwardemail.net. [138.197.213.185])
+        by mx.google.com with ESMTPS id mu18si3744288pjb.110.2020.07.30.08.22.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2020 08:22:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of srs0=5dd6=bk=gmail.com=niftylettuce@forwardemail.net designates 138.197.213.185 as permitted sender) client-ip=138.197.213.185;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@forwardemail.net header.s=default header.b=B16Krnpw;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gjWdxoYn;
+       spf=pass (google.com: domain of srs0=5dd6=bk=gmail.com=niftylettuce@forwardemail.net designates 138.197.213.185 as permitted sender) smtp.mailfrom="SRS0=5dd6=BK=gmail.com=niftylettuce@forwardemail.net";
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net; q=dns/txt; s=default; bh=br2DPNSZHrg1Mpy/uLevoeFmOGxCbPOg86VB+5t1hSk=; h=from:subject:date:message-id:to:mime-version:content-type; b=B16Krnpw4ADoxl4ALibDENqEEr6SklgtI1Bpgks7RZvYJMwl3TpEByIX5QCzE1iposT3Xiwky Mg/eazIUk12UNMGY1fa5oPLYjUwwM9dcI6oXD6Y0hTsK3yoYHd5goLjfkze32sKsfdMclxgLVur 8zwFIwyRWNIhDQhOacmjUWk=
+X-ForwardEmail-Sender: rfc822; niftylettuce@gmail.com
+X-ForwardEmail-Session-ID: wsfehfmmzs5pordj
+X-ForwardEmail-Version: 6.3.1
+Received: by mail-ua1-f53.google.com with SMTP id n2so1368151uan.2
+        for <hello@niftylettuce.com>; Thu, 30 Jul 2020 08:22:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=br2DPNSZHrg1Mpy/uLevoeFmOGxCbPOg86VB+5t1hSk=;
+        b=gjWdxoYn1cBNtP6YrN94k/Di8vsB9b/yjSgcrFaH3NvZSNyJG5cCkCl2jEnBa6Y+g3
+         3cnu3jcQ0RSpNSc1HtOf9mEd0dtADjM77NVK/9sXUaVYfy6Fosh1Ukros7W4l0nl/5Zi
+         xun99omEt4hKmSo1kF3DdZwPnWXpIKfLlDqM0aE9/b4PEKtkKxxlAoiuQCbzZhwU4f7K
+         0E+mr5eX5XL8V7FYW0p5tVrHaVvTZMSfqRPer0WHecn0oPMZerq5iLrCkPbzMXHzqZpF
+         zDH5ri5Wt+4/KT2foRDTqR6LLvpgkJhIJRGdlRasa4lWygTGuAtgVPfwKW0bZYh/NiU3
+         C58g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=br2DPNSZHrg1Mpy/uLevoeFmOGxCbPOg86VB+5t1hSk=;
+        b=RZYnGY+mxEmYjx9Moc6vxkKCI0KjOyPUnyw5Wq6J4sqds94tjC5pT/xz0aTYGvUqiY
+         TM7wkts0YWOMv2h4LwtfgMbE1qwqUf957tels9ID9QynrroPCyHITsxBFtp/wvwTr2FT
+         KERa84f7vX22bAJsxohgNcHMyOIbTD3lJxEXgiG0v49/m/c72Be3UctkciAqExTBrBqo
+         vMu2oqs5Zbmid2y7gUyxO45+5ZCa168b1HreYuYX5o+S+84yzeSEEiZ+ZUTpZ1TCN+Ck
+         qV1ifE5D2a3MZY5bZOuC7idNUICRkSEM+3gxdNZAdmx9/UFDHilXWQtmZkMaRBTMcDcp
+         wLnA==
+X-Gm-Message-State: AOAM531bCzRwJFe2ns4j4LpC4sWkKPDym1S33E2bgzDYI1/XuJu9gVR3 W6hAdlSYkC35Wn2VT/1PRbAEoC77uG2JguuRenImDCyMHDs=
+X-Received: by 2002:ab0:1860:: with SMTP id j32mr2437184uag.70.1596122545611; Thu, 30 Jul 2020 08:22:25 -0700 (PDT)
+MIME-Version: 1.0
+From: Nick Baugh <niftylettuce@gmail.com>
+Date: Thu, 30 Jul 2020 10:22:14 -0500
+Message-ID: <CAERgpLmH=Ae7yKivmzr-PnhPTY-9Y+_+bG2wwCMX=R9c_55KvA@mail.gmail.com>
+Subject: test yo
+To: Nick Baugh <hello@niftylettuce.com>
+Content-Type: multipart/alternative; boundary="00000000000059687405abaa3ddd"
+
+--00000000000059687405abaa3ddd
+Content-Type: text/plain; charset="UTF-8"
+
+test yo
+
+--00000000000059687405abaa3ddd
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">test yo<br></div>
+
+--00000000000059687405abaa3ddd--

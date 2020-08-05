@@ -1,0 +1,92 @@
+{
+  "name": "authheaders",
+  "description": "Node.js wrapper around the Python pip package authheaders",
+  "version": "0.0.0",
+  "author": "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)",
+  "bugs": {
+    "url": "https://github.com/forwardemail/authheaders/issues",
+    "email": "niftylettuce@gmail.com"
+  },
+  "contributors": [
+    "Nick Baugh <niftylettuce@gmail.com> (http://niftylettuce.com/)"
+  ],
+  "dependencies": {
+    "debug": "^4.1.1",
+    "ms": "^2.1.2",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "ava": "latest",
+    "codecov": "latest",
+    "cross-env": "latest",
+    "eslint": "latest",
+    "eslint-config-xo-lass": "latest",
+    "fixpack": "latest",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "nyc": "latest",
+    "remark-cli": "latest",
+    "remark-preset-github": "latest",
+    "xo": "latest"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "homepage": "https://github.com/forwardemail/authheaders",
+  "keywords": [
+    "arc",
+    "arc",
+    "authenticated",
+    "chain",
+    "dkim",
+    "authheaders",
+    "domain",
+    "domainkeys",
+    "email",
+    "header",
+    "headers",
+    "keys",
+    "mail",
+    "message",
+    "messages",
+    "parse",
+    "parser",
+    "pip",
+    "python",
+    "received",
+    "sign",
+    "signature",
+    "signatures",
+    "smtp",
+    "validate",
+    "validation",
+    "validator",
+    "validators",
+    "verification",
+    "verify"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forwardemail/authheaders"
+  },
+  "scripts": {
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "yarn run lint:js && yarn run lint:md",
+    "lint:js": "xo",
+    "lint:md": "remark . -qfo",
+    "pretest": "yarn run lint",
+    "test": "cross-env NODE_ENV=test ava",
+    "test-coverage": "cross-env NODE_ENV=test nyc yarn run test"
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "extends": [
+      "xo-lass"
+    ]
+  }
+}
