@@ -23,7 +23,7 @@
 
 ## Requirements
 
-1. Ensure that you have a Python version of >= 3.5 installed per [authheaders][] requirements (note that Python v3 is required because of a bug with DNS recursive CNAME lookups on v2.7):
+1. Ensure that you have a Python version of >= 3.6 installed.
 
    ```sh
    python3 --version
