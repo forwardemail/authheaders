@@ -94,7 +94,19 @@ authenticateMessage(message, authservId, ip, mailFrom, helo)
 })();
 ```
 
-The value of `result` is an String with the new Authentication-Results header to add to the top of the message headers.
+The value of `result` is an Object with properties `header` (String), and Objects for `spf`, `dkim`, `arc`, and `dmarc`.  These Object's contain a `result` (String) and conditionally a `reason` (String) value.
+
+An example `result` object is provided below:
+
+```js
+{
+  header: 'Authentication-Results: example.com; spf=none smtp.helo=domain.of.sender.net smtp.mailfrom=test.com; dkim=pass header.d=forwardemail.net; arc=pass; dmarc=fail (Used From Domain Record) header.from=gmail.com policy.dmarc=none',
+  spf: { result: 'none' },
+  dkim: { result: 'pass' },
+  arc: { result: 'pass' },
+  dmarc: { policy: 'none', result: 'fail', reason: 'Used From Domain Record' }
+}
+```
 
 
 ## Contributors

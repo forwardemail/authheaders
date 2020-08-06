@@ -29,10 +29,24 @@ test('authenticate message', async (t) => {
     'domain.of.sender.net'
   );
 
-  t.is(
-    result,
-    'Authentication-Results: example.com; spf=none smtp.helo=domain.of.sender.net smtp.mailfrom=test.com; dkim=pass header.d=forwardemail.net; arc=pass; dmarc=fail (Used From Domain Record) header.from=gmail.com policy.dmarc=none'
-  );
+  t.deepEqual(result, {
+    arc: {
+      result: 'pass'
+    },
+    dkim: {
+      result: 'pass'
+    },
+    dmarc: {
+      policy: 'none',
+      reason: 'Used From Domain Record',
+      result: 'fail'
+    },
+    header:
+      'Authentication-Results: example.com; spf=none smtp.helo=domain.of.sender.net smtp.mailfrom=test.com; dkim=pass header.d=forwardemail.net; arc=pass; dmarc=fail (Used From Domain Record) header.from=gmail.com policy.dmarc=none',
+    spf: {
+      result: 'none'
+    }
+  });
 });
 
 test('arc sign throws error with missing From header', async (t) => {
@@ -46,5 +60,4 @@ test('arc sign throws error with missing From header', async (t) => {
     ),
     { message: /IndexError: list index out of range/g }
   );
-  t.pass();
 });
