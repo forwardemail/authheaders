@@ -94,7 +94,9 @@ authenticateMessage(message, authservId, ip, mailFrom, helo)
 })();
 ```
 
-The value of `result` is an Object with properties `header` (String), and Objects for `spf`, `dkim`, `arc`, and `dmarc`.  These Object's contain a `result` (String) and conditionally a `reason` (String) value.
+The value of `result` is an Object with properties `header` (String), and Objects for `spf`, `dkim`, `arc`, and `dmarc`.
+
+These Objects contain a `result` (String) and conditionally a `reason` (String) value.
 
 An example `result` object is provided below:
 
