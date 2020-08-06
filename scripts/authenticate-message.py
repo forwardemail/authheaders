@@ -16,12 +16,15 @@ def main():
     authservId = sys.argv[1]
     ip = sys.argv[2]
     mailFrom = sys.argv[3]
-    helo = sys.argv[4]
 
     message = sys.stdin.read()
 
     #try:
-    header = authheaders.authenticate_message(msg=message, authserv_id=authservId, ip=ip, mail_from=mailFrom, helo=helo, spf=True, dkim=True, arc=True)
+    if len(sys.argv) == 5:
+        helo = sys.argv[4]
+        header = authheaders.authenticate_message(msg=message, authserv_id=authservId, ip=ip, mail_from=mailFrom, helo=helo, spf=True, dkim=True, arc=True)
+    else:
+        header = authheaders.authenticate_message(msg=message, authserv_id=authservId, ip=ip, mail_from=mailFrom, spf=True, dkim=True, arc=True)
     sys.stdout.write(header.encode('utf8'))
         #sys.stdout.write(message)
     #except Exception as e:
