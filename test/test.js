@@ -42,7 +42,7 @@ test('authenticate message', async (t) => {
       result: 'fail'
     },
     header:
-      'Authentication-Results: example.com; spf=none smtp.helo=domain.of.sender.net smtp.mailfrom=test.com; dkim=pass header.d=forwardemail.net; arc=pass; dmarc=fail (Used From Domain Record) header.from=gmail.com policy.dmarc=none',
+      'example.com; spf=none smtp.helo=domain.of.sender.net smtp.mailfrom=test.com; dkim=pass header.d=forwardemail.net; arc=pass; dmarc=fail (Used From Domain Record) header.from=gmail.com policy.dmarc=none',
     spf: {
       result: 'none'
     }

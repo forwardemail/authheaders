@@ -102,7 +102,7 @@ An example `result` object is provided below:
 
 ```js
 {
-  header: 'Authentication-Results: example.com; spf=none smtp.helo=domain.of.sender.net smtp.mailfrom=test.com; dkim=pass header.d=forwardemail.net; arc=pass; dmarc=fail (Used From Domain Record) header.from=gmail.com policy.dmarc=none',
+  header: 'example.com; spf=none smtp.helo=domain.of.sender.net smtp.mailfrom=test.com; dkim=pass header.d=forwardemail.net; arc=pass; dmarc=fail (Used From Domain Record) header.from=gmail.com policy.dmarc=none',
   spf: { result: 'none' },
   dkim: { result: 'pass' },
   arc: { result: 'pass' },

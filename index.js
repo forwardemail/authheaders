@@ -60,7 +60,9 @@ function authenticateMessage(message, ...args) {
     child.on('close', () => {
       if (stderr.length > 0) return reject(new Error(stderr.join('')));
       // Authentication-Results: mx1.forwardemail.net; spf=fail reason="SPF fail - not authorized" smtp.helo=jacks-macbook-pro.local smtp.mailfrom=foo@forwardemail.net; dkim=fail; arc=none; dmarc=fail (Used From Domain Record) header.from=forwardemail.net policy.dmarc=reject
-      const result = { header: stdout.join('').trim() };
+      const result = {
+        header: stdout.join('').trim().split('Authentication-Results: ')[1]
+      };
       for (const key of KEYS) {
         result[key] = {};
       }
