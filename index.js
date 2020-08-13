@@ -63,6 +63,17 @@ function authenticateMessage(message, ...args) {
       const result = {
         header: stdout.join('').trim().split('Authentication-Results: ')[1]
       };
+
+      // TODO: investigate thie edge case further and follow up with authheaders/dkimpy authors
+      if (!result.header)
+        return reject(
+          new Error(
+            `No Authentication-Results header was returned.  Data: ${JSON.stringify(
+              { message, stdout, stderr }
+            )}`
+          )
+        );
+
       for (const key of KEYS) {
         result[key] = {};
       }
