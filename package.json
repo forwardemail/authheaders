@@ -13,7 +13,7 @@
   "dependencies": {
     "debug": "^4.1.1",
     "ms": "^2.1.2",
-    "semver": "^7.3.2"
+    "semver": "^7.3.5"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
